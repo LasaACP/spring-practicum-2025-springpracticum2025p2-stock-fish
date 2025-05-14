@@ -29,6 +29,7 @@ class board{
         board();
         tile getTile(int, int);
         void printBoard();
+        void moveTile(int, int, piece*);
 };
 
 
