@@ -144,4 +144,8 @@ void board::printBoard(){
     }
 }
 
+void board::moveTile(int x, int y, piece* newPiece){
+    bor[y][x].thePiece = newPiece;
+}
+
 
