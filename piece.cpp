@@ -16,11 +16,61 @@ piece::piece(){
     
 }
 
-void piece::setPiece(bool color, int xPos, int yPos, string t){
+void piece::setPiece(bool color, string t){
     wb = color;
-    x = xPos;
-    y = yPos;
     type = t;
+    if(wb == false){
+        if(type == "p"){
+            point = 1;
+            imag = "♙";
+        }
+        if(type == "h"){
+            point = 3;
+            imag = "♘";
+        }
+        if(type == "b"){
+            point = 3;
+            imag = "♗";
+        }
+        if(type == "r"){
+            point = 5;
+            imag = "♖";
+        }
+        if(type == "q"){
+            point = 9;
+            imag = "♕";
+        }
+        if(type == 'k'){
+            point = 100;
+            imag = "♔";
+        }
+    }
+    if(wb == true){
+        if(type == 'p'){
+            point = 1;
+            imag = "☗";
+        }
+        if(type == 'h'){
+            point = 3;
+            imag = "♞";
+        }
+        if(type == 'b'){
+            point = 3;
+            imag = "♝";
+        }
+        if(type == 'r'){
+            point = 5;
+            imag = "♜";
+        }
+        if(type == 'q'){
+            point = 9;
+            imag = "♛";
+        }
+        if(type == 'k'){
+            point = 100;
+            imag = "♚";
+        }
+    }
 }
 
 void piece::move(int xPos, int yPos){
