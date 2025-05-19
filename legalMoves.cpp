@@ -1,8 +1,4 @@
-#include "..."
-
-
-
-void ...::setMoves(piece * p, int x, int y){//gives piece and coordinates for a location of a peice on the board, assuming x: 0-7 inclusive, y: 0-7 inclusive.
+void setMoves(piece * p, int x, int y){//gives piece and coordinates for a location of a peice on the board, assuming x: 0-7 inclusive, y: 0-7 inclusive.
     clearMoves(p);
     switch(p->type){
         case "bishop":
@@ -29,7 +25,7 @@ void ...::setMoves(piece * p, int x, int y){//gives piece and coordinates for a 
     }
 }
 
-void ...::movesRook(piece * p, int x, int y){
+void movesRook(piece * p, int x, int y){
     int x1 = x + 1;
     while(x1 < 8){
         if(board[x1][y].isEmpty){
@@ -84,8 +80,8 @@ void ...::movesRook(piece * p, int x, int y){
     
 }
 
-void ...::movesPawn(piece * p, int x, int y){
-    if(p->color = "white"){
+void movesPawn(piece * p, int x, int y){
+    if(p->color = 0){
         if(y == 7){//should've promoted
             return;
         }
@@ -103,10 +99,10 @@ void ...::movesPawn(piece * p, int x, int y){
         }
 
         //en passant
-        if(y==4 && !board[x+1][y].isEmpty && board[x+1][y].cur_peice->color == "black" && board[x+1][y].cur_piece->type == "pawn"){
+        if(y==4 && !board[x+1][y].isEmpty && board[x+1][y].cur_peice->color == 1 && board[x+1][y].cur_piece->type == "pawn"){
             p->addMove(x+1, y+1);
         }
-        if(y==4 && !board[x-1][y].isEmpty && board[x-1][y].cur_peice->color == "black" && board[x-1][y].cur_piece->type == "pawn"){
+        if(y==4 && !board[x-1][y].isEmpty && board[x-1][y].cur_peice->color == 1 && board[x-1][y].cur_piece->type == "pawn"){
             p->addMove(x-1, y+1);
         }
     }else{//if pawn is black
@@ -127,10 +123,10 @@ void ...::movesPawn(piece * p, int x, int y){
         }
 
         //en passant
-        if(y==3 && !board[x+1][y].isEmpty && board[x+1][y].cur_peice->color == "black" && board[x+1][y].cur_piece->type == "pawn"){
+        if(y==3 && !board[x+1][y].isEmpty && board[x+1][y].cur_peice->color == 0 && board[x+1][y].cur_piece->type == "pawn"){
             p->addMove(x+1, y-1);
         }
-        if(y==3 && !board[x-1][y].isEmpty && board[x-1][y].cur_peice->color == "black" && board[x-1][y].cur_piece->type == "pawn"){
+        if(y==3 && !board[x-1][y].isEmpty && board[x-1][y].cur_peice->color == 0 && board[x-1][y].cur_piece->type == "pawn"){
             p->addMove(x-1, y-1);
         }
     }
