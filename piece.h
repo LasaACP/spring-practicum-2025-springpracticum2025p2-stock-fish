@@ -22,6 +22,7 @@ class piece{
         void setPiece(bool, int, int, string);
         void addMove(int, int);
         void move(int, int);
+        void setMoves(piece*, int, int);
 };
 
 #endif
