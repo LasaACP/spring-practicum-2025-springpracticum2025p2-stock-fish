@@ -1,14 +1,3 @@
-class piece{
-    public:
-        bool wb;
-        int point;
-        int moved;
-        char type;
-        const char* imag;
-        piece();
-        void setPiece(bool, char);
-};
-
 
 class tile{
     public:
