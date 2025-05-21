@@ -24,10 +24,10 @@ void tile::tilePiece(bool color, char t){
     occupied = true;
 }
 
- board::board(){
+ Board::Board(){
     for(int i = 0; i < 8; i++){
         for(int j = 0; j < 8; j++){
-            bor[i][j].thePiece = new piece();
+            bor[i][j].thePiece = new piece(this);
             if((j+i)%2 != 1){
                 bor[i][j].setTile("⬜",true,false);
             }
@@ -64,11 +64,11 @@ void tile::tilePiece(bool color, char t){
 
 }
 
-tile board::getTile(int x, int y){
+tile Board::getTile(int x, int y){
     return bor[y][x];
 }
 
-void board::printBoard(){
+void Board::printBoard(){
     for(int i = 0; i < 8; i++){
         for(int j = 0; j < 8; j++){
             cout << bor[i][j].imag << " ";
@@ -77,7 +77,7 @@ void board::printBoard(){
     }
 }
 
-void board::moveTile(int x, int y, piece* newPiece){
+void Board::moveTile(int x, int y, piece* newPiece){
     bor[y][x].thePiece = newPiece;
 }
 
