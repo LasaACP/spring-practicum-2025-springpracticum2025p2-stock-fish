@@ -1,4 +1,5 @@
-
+#ifndef BOARD_H
+#define BOARD_H
 class tile{
     public:
         const char* imag;
@@ -21,4 +22,5 @@ class board{
         void moveTile(int, int, piece*);
 };
 
+#endif
 
