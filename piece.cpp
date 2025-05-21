@@ -1,6 +1,8 @@
 #include "piece.h"
 #include <iostream>
 #include <string>
+#include "legalMoves.cpp"
+
 using namespace std; 
 
 piece::piece(){
@@ -40,33 +42,33 @@ void piece::setPiece(bool color, string t){
             point = 9;
             imag = "♕";
         }
-        if(type == 'k'){
+        if(type == "k"){
             point = 100;
             imag = "♔";
         }
     }
     if(wb == true){
-        if(type == 'p'){
+        if(type == "p"){
             point = 1;
             imag = "☗";
         }
-        if(type == 'h'){
+        if(type == "h"){
             point = 3;
             imag = "♞";
         }
-        if(type == 'b'){
+        if(type == "b"){
             point = 3;
             imag = "♝";
         }
-        if(type == 'r'){
+        if(type == "r"){
             point = 5;
             imag = "♜";
         }
-        if(type == 'q'){
+        if(type == "q"){
             point = 9;
             imag = "♛";
         }
-        if(type == 'k'){
+        if(type == "k"){
             point = 100;
             imag = "♚";
         }
@@ -74,16 +76,16 @@ void piece::setPiece(bool color, string t){
 }
 
 void piece::move(int xPos, int yPos){
-    setMoves(type, x, y); //adds moves to the variable posMv in the format a1
+    setMoves(this, x, y); //adds moves to the variable posMv in the format a1
     char xLet = char(xPos + 96);
     string move = xLet + to_string(yPos);
     bool validMove = false;
     for (int i=0;i<posMv.size(); i++) {
         if (posMv.at(i) == move) {
-            [board].moveTile(x, y, NULL);//make original tile null
+            board.moveTile(x, y, NULL);//make original tile null
             x = xPos;
             y = yPos;
-            [board].moveTile(xPos, yPos, [piece])//move piece to new tile
+            board.moveTile(xPos, yPos, this);//move piece to new tile
             validMove = true;
             break;
         }
