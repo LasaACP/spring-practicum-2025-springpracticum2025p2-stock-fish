@@ -18,7 +18,8 @@ void tile::setTile(const char* i, bool color, bool oc){
 }
 
 void tile::tilePiece(bool color, char t){
-    thePiece->setPiece(color, t);
+    string s = {t};
+    thePiece->setPiece(color, s);
     imag = thePiece->imag;
     occupied = true;
 }
@@ -79,5 +80,4 @@ void board::printBoard(){
 void board::moveTile(int x, int y, piece* newPiece){
     bor[y][x].thePiece = newPiece;
 }
-
 
