@@ -1,11 +1,13 @@
-#include "piece.h"
+#include "board.h"
 #include <iostream>
 #include <string>
-#include "legalMoves.cpp"
 
 using namespace std; 
 
-piece::piece(){
+
+
+piece::piece(Board * b){
+    board = b;
     wb = false;
     x = 0;
     y = 0;
@@ -82,10 +84,10 @@ void piece::move(int xPos, int yPos){
     bool validMove = false;
     for (int i=0;i<posMv.size(); i++) {
         if (posMv.at(i) == move) {
-            board.moveTile(x, y, NULL);//make original tile null
+            board->moveTile(x, y, NULL);//make original tile null
             x = xPos;
             y = yPos;
-            board.moveTile(xPos, yPos, this);//move piece to new tile
+            board->moveTile(xPos, yPos, this);//move piece to new tile
             validMove = true;
             break;
         }
