@@ -8,7 +8,8 @@ using namespace std;
 
 
 class piece{
-    private:
+    public:
+        piece();
         bool wb;
         int x;
         int y;
@@ -16,13 +17,11 @@ class piece{
         bool moved;
         string type;
         const char* imag;
-    public:
-        piece();
         vector<string> posMv;
         void setPiece(bool, int, int, string);
         void addMove(int, int);
         void move(int, int);
-        void setPiece(bool, string)
+        void setPiece(bool, string);
 };
 
 #endif
