@@ -1,5 +1,8 @@
 #ifndef BOARD_H
 #define BOARD_H
+
+#include "piece.h"
+
 class tile{
     public:
         const char* imag;
